@@ -1,0 +1,45 @@
+name: Collect natalism content daily
+
+# Runs the collector on a schedule in GitHub's cloud (no PC needed),
+# then commits the refreshed data + dashboard back so GitHub Pages serves it.
+on:
+  schedule:
+    - cron: "30 0 * * *"   # 00:30 UTC daily  (~06:00 IST)
+  workflow_dispatch:        # also lets you run it on demand from the Actions tab
+
+permissions:
+  contents: write
+
+concurrency:
+  group: collect
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Collect latest items
+        run: python collect.py
+
+      - name: Publish as the site's home page
+        run: cp dashboard.html index.html
+
+      - name: Commit refreshed data
+        run: |
+          git config user.name "natalism-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A data.db dashboard.html index.html
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "Daily collection $(date -u +'%Y-%m-%d %H:%M UTC')"
+            git push
+          fi

@@ -1,0 +1,8 @@
+# Local runtime junk — not needed in the cloud repo
+__pycache__/
+*.pyc
+server.log
+refresh_test.json
+
+# Keep data.db and dashboard.html / index.html IN the repo:
+# the daily workflow commits them so the hosted site stays fresh.
