@@ -193,14 +193,15 @@ function toast(msg, ms){
   if(ms) toastTimer = setTimeout(()=>t.classList.remove("show"), ms);
 }
 
-const servedLocally = location.protocol === "http:" || location.protocol === "https:";
+// Three modes:
+//  - local server (localhost)  -> live collect via /api/refresh
+//  - hosted site (github.io..) -> reload to get the latest daily batch
+//  - plain file (file://)      -> explain it needs the server
+const isLocalServer = ["localhost", "127.0.0.1"].includes(location.hostname);
+const isHosted = (location.protocol === "http:" || location.protocol === "https:") && !isLocalServer;
 const btn = document.getElementById("refresh");
 
-btn.onclick = async () => {
-  if(!servedLocally){
-    toast("Refresh needs the local server. Close this and run serve.bat (or: python serve.py).", 6000);
-    return;
-  }
+async function liveRefresh(){
   const before = DATA.total;
   btn.disabled = true; btn.classList.add("spin"); btn.textContent = "⟳ Collecting…";
   toast("Fetching the latest items from the web… this can take ~30–90s.", 0);
@@ -218,10 +219,19 @@ btn.onclick = async () => {
   }finally{
     btn.disabled = false; btn.classList.remove("spin"); btn.textContent = "↻ Refresh";
   }
-};
+}
 
-// When opened as a plain file, keep the button but hint at its limitation on hover.
-if(!servedLocally){ btn.title = "Opens live-refresh only when run via serve.bat / python serve.py"; }
+if(isLocalServer){
+  btn.onclick = liveRefresh;
+} else if(isHosted){
+  // Static hosting updates automatically once a day; reload pulls the newest copy.
+  btn.textContent = "↻ Reload";
+  btn.title = "This page refreshes automatically every day. Click to load the newest copy.";
+  btn.onclick = () => { toast("Loading the latest daily collection…", 0); location.reload(); };
+} else {
+  btn.title = "Live refresh works when served via serve.bat / python serve.py";
+  btn.onclick = () => toast("Refresh needs the local server. Close this and run serve.bat (or: python serve.py).", 6000);
+}
 
 render();
 </script>
