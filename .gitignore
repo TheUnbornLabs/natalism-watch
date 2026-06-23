@@ -6,3 +6,7 @@ refresh_test.json
 
 # Keep data.db and dashboard.html / index.html IN the repo:
 # the daily workflow commits them so the hosted site stays fresh.
+
+# auth/runtime logs
+auth.log
+refresh.log
