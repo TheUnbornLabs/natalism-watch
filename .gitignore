@@ -1,0 +1,32 @@
+# Secrets & environment
+.env
+.env.*
+
+# Logs & runtime junk
+*.log
+__pycache__/
+*.pyc
+refresh_test.json
+
+# OS / editor / tooling cruft
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+.claude/
+.cursor/
+node_modules/
+
+# Private working folders — never publish
+drafts/
+prompts/
+private/
+notes/
+scratch/
+tmp/
+temp/
+*.bak
+*~
+
+# NOTE: data.db, dashboard.html and index.html are intentionally TRACKED —
+# the daily workflow regenerates and commits them so the hosted site stays fresh.

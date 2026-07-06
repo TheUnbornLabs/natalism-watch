@@ -1,0 +1,83 @@
+{
+  "_comment": "Edit to add/remove sources, languages, or enable X/YouTube. Free sources (reddit, news, academic) need no keys. To add a language, add it under 'languages' and add matching translated 'queries' to each topic.",
+
+  "languages": {
+    "en": { "label": "English",    "enabled": true,  "news_locale": "hl=en-US&gl=US&ceid=US:en" },
+    "es": { "label": "Espanol",     "enabled": true,  "news_locale": "hl=es&gl=ES&ceid=ES:es" },
+    "de": { "label": "Deutsch",     "enabled": true,  "news_locale": "hl=de&gl=DE&ceid=DE:de" },
+    "fr": { "label": "Francais",    "enabled": true,  "news_locale": "hl=fr&gl=FR&ceid=FR:fr" },
+    "pt": { "label": "Portugues",   "enabled": true,  "news_locale": "hl=pt-BR&gl=BR&ceid=BR:pt-419" },
+    "ja": { "label": "Japanese",    "enabled": true,  "news_locale": "hl=ja&gl=JP&ceid=JP:ja" },
+    "it": { "label": "Italiano",    "enabled": false, "news_locale": "hl=it&gl=IT&ceid=IT:it" },
+    "hi": { "label": "Hindi",       "enabled": false, "news_locale": "hl=hi&gl=IN&ceid=IN:hi" }
+  },
+
+  "topics": {
+    "antinatalism": {
+      "label": "Antinatalism",
+      "color": "#7c5cff",
+      "subreddits": ["antinatalism", "antinatalism2"],
+      "queries": {
+        "en": { "news": "antinatalism OR antinatalist", "academic": "antinatalism philosophy ethics study", "social": "antinatalism", "youtube": "antinatalism" },
+        "es": { "news": "antinatalismo OR antinatalista", "academic": "antinatalismo filosofia etica", "social": "antinatalismo", "youtube": "antinatalismo" },
+        "de": { "news": "Antinatalismus", "academic": "Antinatalismus Philosophie Ethik", "social": "Antinatalismus", "youtube": "Antinatalismus" },
+        "fr": { "news": "antinatalisme OR antinataliste", "academic": "antinatalisme philosophie ethique", "social": "antinatalisme", "youtube": "antinatalisme" },
+        "pt": { "news": "antinatalismo OR antinatalista", "academic": "antinatalismo filosofia etica", "social": "antinatalismo", "youtube": "antinatalismo" },
+        "ja": { "news": "反出生主義", "academic": "反出生主義 哲学 倫理", "social": "反出生主義", "youtube": "反出生主義" },
+        "it": { "news": "antinatalismo", "academic": "antinatalismo filosofia etica", "social": "antinatalismo", "youtube": "antinatalismo" },
+        "hi": { "news": "antinatalism एंटीनेटलिज्म", "academic": "antinatalism philosophy", "social": "antinatalism", "youtube": "antinatalism" }
+      }
+    },
+    "childfree": {
+      "label": "Childfree",
+      "color": "#1fb6a8",
+      "subreddits": ["childfree", "childfreezone"],
+      "queries": {
+        "en": { "news": "childfree OR \"child free\" OR \"voluntarily childless\"", "academic": "childfree childless by choice research study", "social": "childfree", "youtube": "childfree lifestyle" },
+        "es": { "news": "\"sin hijos por eleccion\" OR \"no quiero hijos\" OR childfree", "academic": "sin hijos por eleccion estudio", "social": "childfree sin hijos", "youtube": "vida sin hijos childfree" },
+        "de": { "news": "kinderfrei OR \"gewollt kinderlos\" OR childfree", "academic": "gewollt kinderlos Studie", "social": "kinderfrei childfree", "youtube": "kinderfrei leben" },
+        "fr": { "news": "\"sans enfant par choix\" OR childfree OR \"ne pas vouloir d'enfants\"", "academic": "sans enfant par choix etude", "social": "childfree sans enfant", "youtube": "vie sans enfant childfree" },
+        "pt": { "news": "\"sem filhos por opcao\" OR childfree", "academic": "sem filhos por opcao estudo", "social": "childfree sem filhos", "youtube": "vida sem filhos childfree" },
+        "ja": { "news": "チャイルドフリー OR 子供を持たない", "academic": "チャイルドフリー 研究", "social": "チャイルドフリー", "youtube": "チャイルドフリー" },
+        "it": { "news": "childfree OR \"senza figli per scelta\"", "academic": "senza figli per scelta studio", "social": "childfree senza figli", "youtube": "vita senza figli childfree" },
+        "hi": { "news": "childfree निःसंतान", "academic": "childfree research", "social": "childfree", "youtube": "childfree" }
+      }
+    },
+    "pronatalist": {
+      "label": "Pro-natalist / Anti-antinatalism",
+      "color": "#ff8a3d",
+      "subreddits": ["Natalism", "Natalist"],
+      "queries": {
+        "en": { "news": "pronatalism OR pro-natalist OR \"declining birth rate\" OR \"birth rate policy\" OR \"have more babies\"", "academic": "pronatalism fertility policy birth rate research", "social": "pronatalism OR pronatalist", "youtube": "pronatalism birth rate" },
+        "es": { "news": "natalismo OR \"tasa de natalidad\" OR \"politica natalista\" OR \"crisis demografica\"", "academic": "natalismo fertilidad politica natalidad", "social": "natalismo pronatalismo", "youtube": "natalismo tasa de natalidad" },
+        "de": { "news": "Pronatalismus OR Geburtenrate OR \"mehr Kinder\" OR Geburtenpolitik", "academic": "Pronatalismus Fertilitaet Geburtenrate", "social": "Pronatalismus Geburtenrate", "youtube": "Geburtenrate Pronatalismus" },
+        "fr": { "news": "natalisme OR \"taux de natalite\" OR \"politique nataliste\" OR \"crise demographique\"", "academic": "natalisme fertilite politique natalite", "social": "natalisme pronatalisme", "youtube": "natalisme taux de natalite" },
+        "pt": { "news": "natalismo OR \"taxa de natalidade\" OR \"politica natalista\"", "academic": "natalismo fertilidade taxa de natalidade", "social": "natalismo pronatalismo", "youtube": "natalismo taxa de natalidade" },
+        "ja": { "news": "出生率 OR 少子化対策", "academic": "出生率 人口政策", "social": "出生率 少子化", "youtube": "少子化対策" },
+        "it": { "news": "natalismo OR \"tasso di natalita\" OR \"politiche nataliste\"", "academic": "natalismo fertilita tasso di natalita", "social": "natalismo", "youtube": "natalismo tasso di natalita" },
+        "hi": { "news": "\"birth rate\" India natalism जन्म दर", "academic": "fertility policy birth rate", "social": "pronatalism birth rate", "youtube": "birth rate policy" }
+      }
+    }
+  },
+
+  "sources_enabled": {
+    "reddit": true,
+    "news": true,
+    "academic": true,
+    "twitter": false,
+    "youtube": false
+  },
+
+  "api_keys": {
+    "_note": "Twitter/X needs a Bearer Token (developer.x.com). YouTube needs an API key (console.cloud.google.com -> YouTube Data API v3). Paste them here and flip the matching flag above to true.",
+    "twitter_bearer_token": "",
+    "youtube_api_key": ""
+  },
+
+  "settings": {
+    "max_items_per_source": 40,
+    "history_days_shown": 30,
+    "request_timeout_seconds": 25,
+    "reddit_language": "en"
+  }
+}
